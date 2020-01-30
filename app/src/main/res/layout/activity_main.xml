@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       >
+
+
+       <ImageButton
+           android:id="@+id/btn_pencil"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="10dp"
+           android:contentDescription="pencil"
+           app:srcCompat="@mipmap/pencil" />
+
+       <ImageButton
+           android:id="@+id/btn_eraser"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="10dp"
+           android:contentDescription="eraser"
+           app:srcCompat="@mipmap/eraser" />
+
+       <ImageButton
+           android:id="@+id/btn_background"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="10dp"
+           android:contentDescription="bachgroundcolor"
+           app:srcCompat="@mipmap/bgcolor" />
+
+       <ImageView
+           android:id="@+id/plusminus"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="10dp"
+           android:clickable="true"
+           android:focusable="auto"
+           app:srcCompat="@mipmap/plus_minus" />
+
+       <Button
+           android:id="@+id/btnSave"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="5dp"
+           android:text="Save"
+           android:textSize="18sp"
+           android:textStyle="bold" />
+   </LinearLayout>
+
+    <com.example.task1paint.MyDrawingView
+        android:id="@+id/drawing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+
+        />
+
+
+</LinearLayout>

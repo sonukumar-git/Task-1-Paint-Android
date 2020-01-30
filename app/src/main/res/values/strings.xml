@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Task 1 Paint</string>
+    <string name="zoom_in">increasing</string>
+    <string name="zoom_out">decreasing</string>
+</resources>
