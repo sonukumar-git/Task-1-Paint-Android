@@ -2,4 +2,6 @@
     <string name="app_name">Task 1 Paint</string>
     <string name="zoom_in">increasing</string>
     <string name="zoom_out">decreasing</string>
+    <string name="save_btn">Save</string>
+    <string name="new_btn">new</string>
 </resources>

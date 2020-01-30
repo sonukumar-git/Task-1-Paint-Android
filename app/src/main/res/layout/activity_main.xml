@@ -16,48 +16,79 @@
 
        <ImageButton
            android:id="@+id/btn_pencil"
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
            android:layout_marginTop="10dp"
            android:contentDescription="pencil"
            app:srcCompat="@mipmap/pencil" />
 
        <ImageButton
            android:id="@+id/btn_eraser"
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
            android:layout_marginTop="10dp"
            android:contentDescription="eraser"
            app:srcCompat="@mipmap/eraser" />
 
        <ImageButton
            android:id="@+id/btn_background"
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
            android:layout_marginTop="10dp"
            android:contentDescription="bachgroundcolor"
            app:srcCompat="@mipmap/bgcolor" />
 
+       <LinearLayout
+           android:id="@+id/layout_size"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:layout_marginTop="10dp"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tvbrushLabel"
+               android:layout_width="match_parent"
+               android:layout_height="10dp"
+               android:gravity="center"
+               android:text="Size"
+               android:textSize="8sp"
+               android:textStyle="bold" />
+
+           <TextView
+               android:id="@+id/tvBrush"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
+               android:layout_gravity="center"
+               android:gravity="center"
+               android:hint="b"
+               android:textSize="24sp"
+               android:textStyle="bold" />
+       </LinearLayout>
+
        <ImageView
            android:id="@+id/plusminus"
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
            android:layout_marginTop="10dp"
            android:clickable="true"
            android:focusable="auto"
            app:srcCompat="@mipmap/plus_minus" />
 
        <Button
-           android:id="@+id/btnSave"
-           android:layout_width="wrap_content"
-           android:layout_height="60dp"
-           android:layout_marginLeft="10dp"
+           android:id="@+id/btn_new"
+           android:layout_width="65dp"
+           android:layout_height="50dp"
            android:layout_marginTop="5dp"
-           android:text="Save"
+           android:text="@string/new_btn"
+           android:textSize="18sp"
+           android:textStyle="bold" />
+
+       <Button
+           android:id="@+id/btnSave"
+           android:layout_width="70dp"
+           android:layout_height="50dp"
+           android:layout_marginTop="5dp"
+           android:text="@string/save_btn"
            android:textSize="18sp"
            android:textStyle="bold" />
    </LinearLayout>

@@ -26,7 +26,7 @@ public class MyDrawingView extends View {
      Bitmap canvasBitmap;
 
 
-    private float brushSize;
+     int brushSize;
 
     private boolean erase=false;
 
@@ -140,9 +140,12 @@ public class MyDrawingView extends View {
 
     public void setsizeofBrush(int newsize)
     {
+        if(brushSize+newsize>0)
         brushSize+=newsize;
         drawPaint.setStrokeWidth(brushSize);
     }
+
+
 
 
 }
