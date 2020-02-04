@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -33,6 +34,8 @@ public class MyDrawingView extends View {
     public MyDrawingView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setUpDrawingTool();
+        Log.d("MSG","Constructor");
+
     }
 
     private void setUpDrawingTool(){
@@ -45,10 +48,12 @@ public class MyDrawingView extends View {
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
 
-
+        drawPaint.setXfermode(null);//new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         canvasPaint=new Paint(Paint.DITHER_FLAG);
         brushSize=20;
         drawPaint.setStrokeWidth(brushSize);
+        Log.d("MSG","Setting up tools");
+
 
     }
 
@@ -58,15 +63,22 @@ public class MyDrawingView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         canvasBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
         drawCanvas=new Canvas(canvasBitmap);
+        Log.d("MSG","objectChanged");
+
         drawCanvas.drawColor(backColor);
 
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawBitmap(canvasBitmap,0,0,canvasPaint);
+        canvas.drawBitmap(canvasBitmap,0,0,drawPaint);
         canvas.drawPath(drawPath,drawPaint);
+       //canvas.setBitmap(null);
+
+        Log.d("MSG","onDraw");
+
 
     }
 
@@ -75,17 +87,19 @@ public class MyDrawingView extends View {
         // X and Y position of user touch.
         float touchX = event.getX();
         float touchY = event.getY();
+        Log.d("MSG","onTouch");
         // Draw the path according to the touch event taking place.
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 drawPath.moveTo(touchX, touchY);
-                break;
+               break;
             case MotionEvent.ACTION_MOVE:
                 drawPath.lineTo(touchX, touchY);
                 break;
-            case MotionEvent.ACTION_UP:
+           case MotionEvent.ACTION_UP:
                 if (erase){
-                    drawPaint.setXfermode(null);//new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+                    drawPaint.setXfermode(null);//
+                    // new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
                 }
                 drawCanvas.drawPath(drawPath, drawPaint);
                 drawPath.reset();

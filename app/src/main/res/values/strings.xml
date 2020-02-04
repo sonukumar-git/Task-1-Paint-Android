@@ -4,4 +4,10 @@
     <string name="zoom_out">decreasing</string>
     <string name="save_btn">Save</string>
     <string name="new_btn">new</string>
+    <string name="size_label">size</string>
+    <string name="size_label_num">8</string>
+    <string name="btn_pencil">pencil</string>
+    <string name="btn_eraser">eraser</string>
+    <string name="btn_bgColor">backgroundColor</string>
+    <string name="btn_brush">brushsize</string>
 </resources>

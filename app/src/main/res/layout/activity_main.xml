@@ -1,110 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/btn_pencil"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:contentDescription="@string/btn_pencil"
+        app:layout_constraintEnd_toStartOf="@+id/btn_eraser"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/pencil" />
+
+<ImageButton
+    android:id="@+id/btn_eraser"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    app:layout_constraintEnd_toStartOf="@+id/btn_background"
+    app:layout_constraintStart_toEndOf="@+id/btn_pencil"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@mipmap/eraser"
+    android:contentDescription="@string/btn_eraser" />
+
+<ImageButton
+    android:id="@+id/btn_background"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    app:layout_constraintEnd_toStartOf="@+id/tvBrush"
+    app:layout_constraintStart_toEndOf="@+id/btn_eraser"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@mipmap/bgcolor"
+    android:contentDescription="@string/btn_bgColor" />
+
+    <TextView
+        android:id="@+id/tvBrushLabel"
+        android:layout_width="40dp"
+        android:layout_height="15dp"
+
+        android:gravity="center"
+        android:text="@string/size_label"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvBrush"
+        app:layout_constraintEnd_toStartOf="@+id/plusminus"
+        app:layout_constraintStart_toEndOf="@+id/btn_background"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBrush"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/plusminus"
+        app:layout_constraintStart_toEndOf="@+id/btn_background"
+        app:layout_constraintTop_toBottomOf="@+id/tvBrushLabel" />
+
+<ImageButton
+    android:id="@+id/plusminus"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginRight="32dp"
+    app:layout_constraintEnd_toStartOf="@+id/btn_new"
+    app:layout_constraintStart_toEndOf="@+id/tvBrush"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@mipmap/plus_minus"
+    android:contentDescription="@string/btn_brush" />
+
+    <Button
+        android:id="@+id/btn_new"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:onClick="new_page"
+        android:text="@string/new_btn"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintStart_toEndOf="@+id/plusminus"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/save_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_new"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+<com.example.task1paint.MyDrawingView
+    android:id="@+id/drawing"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       >
+    android:layout_height="0dp"
+    android:layout_weight="1"
 
 
-       <ImageButton
-           android:id="@+id/btn_pencil"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_marginTop="10dp"
-           android:contentDescription="pencil"
-           app:srcCompat="@mipmap/pencil" />
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/plusminus" />
 
-       <ImageButton
-           android:id="@+id/btn_eraser"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_marginTop="10dp"
-           android:contentDescription="eraser"
-           app:srcCompat="@mipmap/eraser" />
-
-       <ImageButton
-           android:id="@+id/btn_background"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_marginTop="10dp"
-           android:contentDescription="bachgroundcolor"
-           app:srcCompat="@mipmap/bgcolor" />
-
-       <LinearLayout
-           android:id="@+id/layout_size"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_marginTop="10dp"
-           android:orientation="vertical">
-
-           <TextView
-               android:id="@+id/tvbrushLabel"
-               android:layout_width="match_parent"
-               android:layout_height="10dp"
-               android:gravity="center"
-               android:text="Size"
-               android:textSize="8sp"
-               android:textStyle="bold" />
-
-           <TextView
-               android:id="@+id/tvBrush"
-               android:layout_width="match_parent"
-               android:layout_height="30dp"
-               android:layout_gravity="center"
-               android:gravity="center"
-               android:hint="b"
-               android:textSize="24sp"
-               android:textStyle="bold" />
-       </LinearLayout>
-
-       <ImageView
-           android:id="@+id/plusminus"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_marginTop="10dp"
-           android:clickable="true"
-           android:focusable="auto"
-           app:srcCompat="@mipmap/plus_minus" />
-
-       <Button
-           android:id="@+id/btn_new"
-           android:layout_width="65dp"
-           android:layout_height="50dp"
-           android:layout_marginTop="5dp"
-           android:text="@string/new_btn"
-           android:textSize="18sp"
-           android:textStyle="bold" />
-
-       <Button
-           android:id="@+id/btnSave"
-           android:layout_width="70dp"
-           android:layout_height="50dp"
-           android:layout_marginTop="5dp"
-           android:text="@string/save_btn"
-           android:textSize="18sp"
-           android:textStyle="bold" />
-   </LinearLayout>
-
-    <com.example.task1paint.MyDrawingView
-        android:id="@+id/drawing"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-
-        />
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

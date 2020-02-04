@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         b=String.valueOf(myView.brushSize);
         tvBrush.setText(b);
         btnEraser=findViewById(R.id.btn_eraser);
+
+        Log.d("MSG","oncreate");
+
         btnEraser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,45 +224,38 @@ public class MainActivity extends AppCompatActivity {
 
 
         );
-        btnNew=findViewById(R.id.btn_new);
-        btnNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                AlertDialog.Builder new_dialog=new AlertDialog.Builder(MainActivity.this);
-                new_dialog.setTitle("New page");
-                new_dialog.setMessage("Are you sure to open new Page ? " +
-                        "You may lose the current drawing !" );
+
+
+
+
+    }
+
+
+    public void new_page(View v)
+    {
+        AlertDialog.Builder new_dialog=new AlertDialog.Builder(MainActivity.this);
+        new_dialog.setTitle("New page");
+        new_dialog.setMessage("Are you sure to open new Page ? " +
+                "You may lose the current drawing !" );
 //                        "").setCancelable(false)
-            new_dialog.setPositiveButton("yes", new DialogInterface.OnClickListener()
-                {
-                  public void onClick(DialogInterface dialog ,int d)
-                  {
-                      myView.startNew();
-                      dialog.dismiss();
-                      Toast.makeText(MainActivity.this, "Welcome to new page!", Toast.LENGTH_SHORT).show();
-                  }
-                });
-            new_dialog.setNegativeButton("No ", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-
-                new_dialog.show();
-
-
-
-
-
+        new_dialog.setPositiveButton("yes", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog ,int d)
+            {
+                myView.startNew();
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this, "Welcome to new page!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        new_dialog.setNegativeButton("No ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
             }
         });
 
-
-
-
-
+        new_dialog.show();
 
     }
 
