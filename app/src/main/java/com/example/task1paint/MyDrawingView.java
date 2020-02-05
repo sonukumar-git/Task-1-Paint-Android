@@ -25,6 +25,8 @@ public class MyDrawingView extends View {
     private int previousColor=paintColor;
     private Canvas drawCanvas;
      Bitmap canvasBitmap;
+    float touchX ;
+    float touchY ;
 
 
      int brushSize;
@@ -48,7 +50,7 @@ public class MyDrawingView extends View {
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
 
-        drawPaint.setXfermode(null);//new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+      //  drawPaint.setXfermode(null);//new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         canvasPaint=new Paint(Paint.DITHER_FLAG);
         brushSize=20;
         drawPaint.setStrokeWidth(brushSize);
@@ -63,9 +65,11 @@ public class MyDrawingView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         canvasBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
         drawCanvas=new Canvas(canvasBitmap);
+        drawCanvas.drawColor(Color.WHITE);
+
         Log.d("MSG","objectChanged");
 
-        drawCanvas.drawColor(backColor);
+
 
     }
 
@@ -85,8 +89,8 @@ public class MyDrawingView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // X and Y position of user touch.
-        float touchX = event.getX();
-        float touchY = event.getY();
+         touchX = event.getX();
+        touchY = event.getY();
         Log.d("MSG","onTouch");
         // Draw the path according to the touch event taking place.
         switch (event.getAction()) {
@@ -95,6 +99,7 @@ public class MyDrawingView extends View {
                break;
             case MotionEvent.ACTION_MOVE:
                 drawPath.lineTo(touchX, touchY);
+
                 break;
            case MotionEvent.ACTION_UP:
                 if (erase){

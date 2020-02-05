@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvBrush;
     private static final int UNIQUE_REQUEST_CODE=1;
     String b;
+    AlertDialog.Builder new_dialog;
+    AlertDialog.Builder saveDialog;
+    AlertDialog.Builder dialog ;
+    Dialog brushsize;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         b=String.valueOf(myView.brushSize);
         tvBrush.setText(b);
         btnEraser=findViewById(R.id.btn_eraser);
+
+         new_dialog=new AlertDialog.Builder(MainActivity.this);
+         saveDialog = new AlertDialog.Builder(MainActivity.this);
+         dialog = new AlertDialog.Builder(this);
+        brushsize=new Dialog(MainActivity.this);
 
         Log.d("MSG","oncreate");
 
@@ -133,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
 
-                    AlertDialog.Builder saveDialog = new AlertDialog.Builder(MainActivity.this);
+
                     saveDialog.setTitle("Save drawing");
                     saveDialog.setMessage("Save drawing to device Gallery?");
                     saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -180,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final Dialog brushsize=new Dialog(MainActivity.this);
+
                 brushsize.setContentView(R.layout.activity_size_activity);
                 brushsize.setTitle("ZOOM IN/OUT");
                 ImageView zoom_in=brushsize.findViewById(R.id.zoom_in);
@@ -234,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void new_page(View v)
     {
-        AlertDialog.Builder new_dialog=new AlertDialog.Builder(MainActivity.this);
+
         new_dialog.setTitle("New page");
         new_dialog.setMessage("Are you sure to open new Page ? " +
                 "You may lose the current drawing !" );
@@ -275,7 +285,6 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                     dialog.setMessage("This Permisision is important").setTitle("Important Permission ");
                     dialog.setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
